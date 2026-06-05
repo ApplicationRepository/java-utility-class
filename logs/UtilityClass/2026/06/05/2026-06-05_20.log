@@ -1,0 +1,134 @@
+2026-06-05 20:05:30.441 [main] INFO  com.uc.pptx.PptxTemplateUtil - PPT 模板处理成功！输出路径: /Users/administrator/Desktop/pptx/output.pptx
+2026-06-05 20:07:52.408 [main] INFO  com.uc.pptx.PptxTemplateUtil - PPT 模板处理成功！输出路径: /Users/administrator/Desktop/pptx/output.pptx
+2026-06-05 20:22:54.404 [main] INFO  com.uc.pptx.PptxUtil - key:${title},value:2026年度业务报告
+2026-06-05 20:22:54.405 [main] INFO  com.uc.pptx.PptxUtil - content:${title}
+2026-06-05 20:22:54.405 [main] INFO  com.uc.pptx.PptxUtil - key:${image1},value:/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/1.png
+2026-06-05 20:22:54.405 [main] INFO  com.uc.pptx.PptxUtil - key:${image4},value:/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/1.png
+2026-06-05 20:22:54.405 [main] INFO  com.uc.pptx.PptxUtil - key:${image2},value:/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/1.png
+2026-06-05 20:22:54.405 [main] INFO  com.uc.pptx.PptxUtil - key:${date},value:2026-05-07
+2026-06-05 20:22:54.405 [main] INFO  com.uc.pptx.PptxUtil - key:${image3},value:/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/1.png
+2026-06-05 20:22:54.405 [main] INFO  com.uc.pptx.PptxUtil - key:${author},value:Gemini AI
+2026-06-05 20:22:54.405 [main] INFO  com.uc.pptx.PptxUtil - key:${titleImage1},value:这是Image Title
+2026-06-05 20:22:54.405 [main] INFO  com.uc.pptx.PptxUtil - key:${title},value:2026年度业务报告
+2026-06-05 20:22:54.405 [main] INFO  com.uc.pptx.PptxUtil - key:${image1},value:/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/1.png
+2026-06-05 20:22:54.405 [main] INFO  com.uc.pptx.PptxUtil - key:${image4},value:/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/1.png
+2026-06-05 20:22:54.405 [main] INFO  com.uc.pptx.PptxUtil - key:${image2},value:/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/1.png
+2026-06-05 20:22:54.405 [main] INFO  com.uc.pptx.PptxUtil - key:${date},value:2026-05-07
+2026-06-05 20:22:54.405 [main] INFO  com.uc.pptx.PptxUtil - key:${image3},value:/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/1.png
+2026-06-05 20:22:54.405 [main] INFO  com.uc.pptx.PptxUtil - key:${author},value:Gemini AI
+2026-06-05 20:22:54.405 [main] INFO  com.uc.pptx.PptxUtil - content:${author}
+2026-06-05 20:22:54.405 [main] INFO  com.uc.pptx.PptxUtil - key:${titleImage1},value:这是Image Title
+2026-06-05 20:22:54.406 [main] INFO  com.uc.pptx.PptxUtil - key:${title},value:2026年度业务报告
+2026-06-05 20:22:54.406 [main] INFO  com.uc.pptx.PptxUtil - key:${image1},value:/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/1.png
+2026-06-05 20:22:54.406 [main] INFO  com.uc.pptx.PptxUtil - key:${image4},value:/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/1.png
+2026-06-05 20:22:54.406 [main] INFO  com.uc.pptx.PptxUtil - key:${image2},value:/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/1.png
+2026-06-05 20:22:54.406 [main] INFO  com.uc.pptx.PptxUtil - key:${date},value:2026-05-07
+2026-06-05 20:22:54.406 [main] INFO  com.uc.pptx.PptxUtil - key:${image3},value:/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/1.png
+2026-06-05 20:22:54.406 [main] INFO  com.uc.pptx.PptxUtil - key:${author},value:Gemini AI
+2026-06-05 20:22:54.406 [main] INFO  com.uc.pptx.PptxUtil - key:${titleImage1},value:这是Image Title
+2026-06-05 20:22:54.407 [main] INFO  com.uc.pptx.PptxUtil - key:${title},value:2026年度业务报告
+2026-06-05 20:22:54.407 [main] INFO  com.uc.pptx.PptxUtil - key:${image1},value:/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/1.png
+2026-06-05 20:22:54.407 [main] INFO  com.uc.pptx.PptxUtil - key:${image4},value:/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/1.png
+2026-06-05 20:22:54.407 [main] INFO  com.uc.pptx.PptxUtil - key:${image2},value:/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/1.png
+2026-06-05 20:22:54.407 [main] INFO  com.uc.pptx.PptxUtil - key:${date},value:2026-05-07
+2026-06-05 20:22:54.407 [main] INFO  com.uc.pptx.PptxUtil - key:${image3},value:/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/1.png
+2026-06-05 20:22:54.407 [main] INFO  com.uc.pptx.PptxUtil - key:${author},value:Gemini AI
+2026-06-05 20:22:54.407 [main] INFO  com.uc.pptx.PptxUtil - key:${titleImage1},value:这是Image Title
+2026-06-05 20:22:54.463 [main] INFO  com.uc.pptx.PptxUtil - 处理成功！输出路径:/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/output.pptx
+2026-06-05 20:37:36.704 [main] INFO  com.uc.pptx.PptxUtil - key:${imgChart1},value:/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/1.png
+2026-06-05 20:37:36.705 [main] INFO  com.uc.pptx.PptxUtil - key:${title},value:2026年度业务报告
+2026-06-05 20:37:36.705 [main] INFO  com.uc.pptx.PptxUtil - content:${title}
+2026-06-05 20:37:36.705 [main] INFO  com.uc.pptx.PptxUtil - key:${date},value:2026-05-07
+2026-06-05 20:37:36.705 [main] INFO  com.uc.pptx.PptxUtil - key:${author},value:Gemini AI
+2026-06-05 20:37:36.706 [main] INFO  com.uc.pptx.PptxUtil - key:${imgChart1},value:/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/1.png
+2026-06-05 20:37:36.706 [main] INFO  com.uc.pptx.PptxUtil - key:${title},value:2026年度业务报告
+2026-06-05 20:37:36.706 [main] INFO  com.uc.pptx.PptxUtil - key:${date},value:2026-05-07
+2026-06-05 20:37:36.706 [main] INFO  com.uc.pptx.PptxUtil - key:${author},value:Gemini AI
+2026-06-05 20:37:36.706 [main] INFO  com.uc.pptx.PptxUtil - content:${author}
+2026-06-05 20:37:36.707 [main] INFO  com.uc.pptx.PptxUtil - key:${imgChart1},value:/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/1.png
+2026-06-05 20:37:36.707 [main] INFO  com.uc.pptx.PptxUtil - key:${imgChart1},value:/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/1.png
+2026-06-05 20:37:36.707 [main] INFO  com.uc.pptx.PptxUtil - key:${title},value:2026年度业务报告
+2026-06-05 20:37:36.707 [main] INFO  com.uc.pptx.PptxUtil - key:${date},value:2026-05-07
+2026-06-05 20:37:36.707 [main] INFO  com.uc.pptx.PptxUtil - key:${author},value:Gemini AI
+2026-06-05 20:37:36.775 [main] INFO  com.uc.pptx.PptxUtil - key:${imgChart1},value:/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/1.png
+2026-06-05 20:37:36.775 [main] INFO  com.uc.pptx.PptxUtil - key:${title},value:2026年度业务报告
+2026-06-05 20:37:36.775 [main] INFO  com.uc.pptx.PptxUtil - key:${date},value:2026-05-07
+2026-06-05 20:37:36.775 [main] INFO  com.uc.pptx.PptxUtil - key:${author},value:Gemini AI
+2026-06-05 20:37:36.846 [main] INFO  com.uc.pptx.PptxUtil - 处理成功！输出路径:/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/output.pptx
+2026-06-05 20:42:08.058 [main] INFO  com.uc.pptx.PptxUtil - key:${imgChart1},value:/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/1.png
+2026-06-05 20:42:08.059 [main] INFO  com.uc.pptx.PptxUtil - key:${title},value:2026年度业务报告
+2026-06-05 20:42:08.059 [main] INFO  com.uc.pptx.PptxUtil - content:${title}
+2026-06-05 20:42:08.059 [main] INFO  com.uc.pptx.PptxUtil - key:${date},value:2026-05-07
+2026-06-05 20:42:08.059 [main] INFO  com.uc.pptx.PptxUtil - key:${author},value:Gemini AI
+2026-06-05 20:42:08.059 [main] INFO  com.uc.pptx.PptxUtil - key:${imgChart1},value:/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/1.png
+2026-06-05 20:42:08.059 [main] INFO  com.uc.pptx.PptxUtil - key:${title},value:2026年度业务报告
+2026-06-05 20:42:08.059 [main] INFO  com.uc.pptx.PptxUtil - key:${date},value:2026-05-07
+2026-06-05 20:42:08.060 [main] INFO  com.uc.pptx.PptxUtil - key:${author},value:Gemini AI
+2026-06-05 20:42:08.060 [main] INFO  com.uc.pptx.PptxUtil - content:${author}
+2026-06-05 20:42:08.060 [main] INFO  com.uc.pptx.PptxUtil - key:${imgChart1},value:/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/1.png
+2026-06-05 20:42:08.061 [main] INFO  com.uc.pptx.PptxUtil - key:${imgChart1},value:/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/1.png
+2026-06-05 20:42:08.061 [main] INFO  com.uc.pptx.PptxUtil - key:${title},value:2026年度业务报告
+2026-06-05 20:42:08.061 [main] INFO  com.uc.pptx.PptxUtil - key:${date},value:2026-05-07
+2026-06-05 20:42:08.061 [main] INFO  com.uc.pptx.PptxUtil - key:${author},value:Gemini AI
+2026-06-05 20:42:08.122 [main] INFO  com.uc.pptx.PptxUtil - key:${imgChart1},value:/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/1.png
+2026-06-05 20:42:08.122 [main] INFO  com.uc.pptx.PptxUtil - key:${title},value:2026年度业务报告
+2026-06-05 20:42:08.122 [main] INFO  com.uc.pptx.PptxUtil - key:${date},value:2026-05-07
+2026-06-05 20:42:08.123 [main] INFO  com.uc.pptx.PptxUtil - key:${author},value:Gemini AI
+2026-06-05 20:42:08.194 [main] INFO  com.uc.pptx.PptxUtil - 处理成功！输出路径:/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/output.pptx
+2026-06-05 20:43:28.759 [main] INFO  com.uc.ppt.PptxUtilTest - 正在删除：/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/output.pptx。
+2026-06-05 20:43:28.776 [main] INFO  com.uc.ppt.PptxUtilTest - 删除/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/output.pptx完成。
+2026-06-05 20:43:29.211 [main] INFO  com.uc.pptx.PptxTemplateUtil - PPT 模板处理成功！输出路径: /Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/output.pptx
+2026-06-05 20:43:29.211 [main] INFO  com.uc.ppt.PptxUtilTest - 正在删除：/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/output.pptx。
+2026-06-05 20:43:29.212 [main] INFO  com.uc.ppt.PptxUtilTest - 删除/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/output.pptx完成。
+2026-06-05 20:43:29.264 [main] INFO  com.uc.ppt.PptxUtilTest - 正在删除：/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/output.pptx。
+2026-06-05 20:43:29.264 [main] INFO  com.uc.ppt.PptxUtilTest - 删除/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/output.pptx完成。
+2026-06-05 20:43:29.287 [main] INFO  com.uc.pptx.PptxUtil - key:${imgChart1},value:/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/1.png
+2026-06-05 20:43:29.287 [main] INFO  com.uc.pptx.PptxUtil - key:${title},value:2026年度业务报告
+2026-06-05 20:43:29.287 [main] INFO  com.uc.pptx.PptxUtil - content:${title}
+2026-06-05 20:43:29.287 [main] INFO  com.uc.pptx.PptxUtil - key:${date},value:2026-05-07
+2026-06-05 20:43:29.287 [main] INFO  com.uc.pptx.PptxUtil - key:${author},value:Gemini AI
+2026-06-05 20:43:29.287 [main] INFO  com.uc.pptx.PptxUtil - key:${imgChart1},value:/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/1.png
+2026-06-05 20:43:29.287 [main] INFO  com.uc.pptx.PptxUtil - key:${title},value:2026年度业务报告
+2026-06-05 20:43:29.287 [main] INFO  com.uc.pptx.PptxUtil - key:${date},value:2026-05-07
+2026-06-05 20:43:29.287 [main] INFO  com.uc.pptx.PptxUtil - key:${author},value:Gemini AI
+2026-06-05 20:43:29.287 [main] INFO  com.uc.pptx.PptxUtil - content:${author}
+2026-06-05 20:43:29.288 [main] INFO  com.uc.pptx.PptxUtil - key:${imgChart1},value:/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/1.png
+2026-06-05 20:43:29.288 [main] INFO  com.uc.pptx.PptxUtil - key:${imgChart1},value:/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/1.png
+2026-06-05 20:43:29.288 [main] INFO  com.uc.pptx.PptxUtil - key:${title},value:2026年度业务报告
+2026-06-05 20:43:29.288 [main] INFO  com.uc.pptx.PptxUtil - key:${date},value:2026-05-07
+2026-06-05 20:43:29.288 [main] INFO  com.uc.pptx.PptxUtil - key:${author},value:Gemini AI
+2026-06-05 20:43:29.307 [main] INFO  com.uc.pptx.PptxUtil - key:${imgChart1},value:/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/1.png
+2026-06-05 20:43:29.307 [main] INFO  com.uc.pptx.PptxUtil - key:${title},value:2026年度业务报告
+2026-06-05 20:43:29.307 [main] INFO  com.uc.pptx.PptxUtil - key:${date},value:2026-05-07
+2026-06-05 20:43:29.307 [main] INFO  com.uc.pptx.PptxUtil - key:${author},value:Gemini AI
+2026-06-05 20:43:29.348 [main] INFO  com.uc.pptx.PptxUtil - 处理成功！输出路径:/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/output.pptx
+2026-06-05 20:45:42.899 [main] INFO  com.uc.ppt.PptxUtilTest - 正在删除：/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/output.pptx。
+2026-06-05 20:45:42.916 [main] INFO  com.uc.ppt.PptxUtilTest - 删除/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/output.pptx完成。
+2026-06-05 20:46:10.883 [main] INFO  com.uc.ppt.PptxUtilTest - 正在删除：/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/output.pptx。
+2026-06-05 20:46:10.900 [main] INFO  com.uc.ppt.PptxUtilTest - 删除/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/output.pptx完成。
+2026-06-05 20:46:11.149 [main] INFO  com.uc.pptx.PptxUtil - key:${imgChart1},value:/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/1.png
+2026-06-05 20:46:11.149 [main] INFO  com.uc.pptx.PptxUtil - key:${title},value:2026年度业务报告
+2026-06-05 20:46:11.149 [main] INFO  com.uc.pptx.PptxUtil - content:${title}
+2026-06-05 20:46:11.149 [main] INFO  com.uc.pptx.PptxUtil - key:${date},value:2026-05-07
+2026-06-05 20:46:11.149 [main] INFO  com.uc.pptx.PptxUtil - key:${author},value:Gemini AI
+2026-06-05 20:46:11.149 [main] INFO  com.uc.pptx.PptxUtil - key:${imgChart1},value:/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/1.png
+2026-06-05 20:46:11.149 [main] INFO  com.uc.pptx.PptxUtil - key:${title},value:2026年度业务报告
+2026-06-05 20:46:11.149 [main] INFO  com.uc.pptx.PptxUtil - key:${date},value:2026-05-07
+2026-06-05 20:46:11.149 [main] INFO  com.uc.pptx.PptxUtil - key:${author},value:Gemini AI
+2026-06-05 20:46:11.149 [main] INFO  com.uc.pptx.PptxUtil - content:${author}
+2026-06-05 20:46:11.150 [main] INFO  com.uc.pptx.PptxUtil - key:${imgChart1},value:/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/1.png
+2026-06-05 20:46:11.150 [main] INFO  com.uc.pptx.PptxUtil - key:${imgChart1},value:/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/1.png
+2026-06-05 20:46:11.150 [main] INFO  com.uc.pptx.PptxUtil - key:${title},value:2026年度业务报告
+2026-06-05 20:46:11.150 [main] INFO  com.uc.pptx.PptxUtil - key:${date},value:2026-05-07
+2026-06-05 20:46:11.150 [main] INFO  com.uc.pptx.PptxUtil - key:${author},value:Gemini AI
+2026-06-05 20:46:11.211 [main] INFO  com.uc.pptx.PptxUtil - key:${imgChart1},value:/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/1.png
+2026-06-05 20:46:11.211 [main] INFO  com.uc.pptx.PptxUtil - key:${title},value:2026年度业务报告
+2026-06-05 20:46:11.211 [main] INFO  com.uc.pptx.PptxUtil - key:${date},value:2026-05-07
+2026-06-05 20:46:11.211 [main] INFO  com.uc.pptx.PptxUtil - key:${author},value:Gemini AI
+2026-06-05 20:46:11.287 [main] INFO  com.uc.pptx.PptxUtil - 处理成功！输出路径:/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/output.pptx
+2026-06-05 20:48:23.657 [main] INFO  com.uc.ppt.PptxUtilTest - 正在删除：/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/output.pptx。
+2026-06-05 20:48:23.676 [main] INFO  com.uc.ppt.PptxUtilTest - 删除/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/output.pptx完成。
+2026-06-05 20:48:24.098 [main] INFO  com.uc.pptx.PptxTemplateUtil - PPT 模板处理成功！输出路径: /Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/output.pptx
+2026-06-05 20:57:35.941 [main] INFO  com.uc.ppt.PptxUtilTest - 正在删除：/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/output.pptx。
+2026-06-05 20:57:35.959 [main] INFO  com.uc.ppt.PptxUtilTest - 删除/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/output.pptx完成。
+2026-06-05 20:57:36.390 [main] INFO  com.uc.pptx.PptxTemplateUtil - PPT 模板处理成功！输出路径: /Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file/output.pptx

@@ -1,4 +1,4 @@
-package com.uc.util;
+package com.uc.pptx;
 
 import cn.hutool.core.util.StrUtil;
 import lombok.extern.log4j.Log4j2;
@@ -24,7 +24,7 @@ public class PptxUtil {
     }
 
 
-    public static void processPptx(String sourcePath, String destPath, Map<String, String> dataMap, String imagePlaceholderMark) {
+    public static void createPptx(String sourcePath, String destPath, Map<String, String> dataMap, String imagePlaceholderMark) {
         try (FileInputStream fis = new FileInputStream(sourcePath);
              XMLSlideShow ppt = new XMLSlideShow(fis)) {
             // 图片数据缓存：避免同一张图片在 PPT 中多次重复保存，优化文件大小
