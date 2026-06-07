@@ -47,6 +47,7 @@ public final class PptxNormalDistUtils {
                 }
             });
         }
+        LOGGER.info("正态分布图生成完毕");
     }
 
     private static void createNormalDistributionChart(XMLSlideShow ppt, XSLFSlide slide, XSLFTextShape textShape, NormalDistConfig config) throws Exception {

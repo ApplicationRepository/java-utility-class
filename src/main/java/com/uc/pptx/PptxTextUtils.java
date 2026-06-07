@@ -1,14 +1,16 @@
 package com.uc.pptx;
 
 
+import lombok.extern.log4j.Log4j2;
 import org.apache.poi.xslf.usermodel.*;
 
 import java.util.List;
 import java.util.Map;
 
 /**
- * 专门负责 PPT 普通文本替换
+ * 普通文本替换
  */
+@Log4j2
 public final class PptxTextUtils {
 
     private PptxTextUtils() {
@@ -21,6 +23,7 @@ public final class PptxTextUtils {
         for (XSLFSlide slide : ppt.getSlides()) {
             processContainer(slide, dataMap);
         }
+        LOGGER.info("文本生成完毕");
     }
 
     private static void processContainer(XSLFShapeContainer container, Map<String, String> dataMap) {

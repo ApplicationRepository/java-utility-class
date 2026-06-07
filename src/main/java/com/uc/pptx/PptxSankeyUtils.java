@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 专门负责将占位符文本框替换为【桑基图】
+ * 桑基图
  */
 @Log4j2
 public final class PptxSankeyUtils {
@@ -25,7 +25,6 @@ public final class PptxSankeyUtils {
         if (ppt == null || sankeyMap == null || sankeyMap.isEmpty()) {
             return;
         }
-
         for (XSLFSlide slide : ppt.getSlides()) {
             Map<XSLFTextShape, SankeyData> sankeyTasks = new HashMap<>();
             // 1. 扫描桑基图占位符
@@ -39,6 +38,7 @@ public final class PptxSankeyUtils {
                 }
             });
         }
+        LOGGER.info("桑基图生成完毕");
     }
 
     private static void scanSankeyPlaceholders(XSLFShapeContainer container, Map<String, SankeyData> sankeyMap, String mark, Map<XSLFTextShape, SankeyData> tasks) {

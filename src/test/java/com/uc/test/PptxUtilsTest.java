@@ -16,9 +16,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * PPTX 模板引擎 - 自动替换文字与图片
- */
+
 @Log4j2
 public class PptxUtilsTest {
 

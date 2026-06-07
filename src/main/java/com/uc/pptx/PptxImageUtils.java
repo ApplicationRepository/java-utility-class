@@ -41,6 +41,7 @@ public final class PptxImageUtils {
                 }
             });
         }
+        LOGGER.error("图片生成完毕");
     }
 
     private static void scanImagePlaceholders(XSLFShapeContainer container, Map<String, String> imageMap, String imgMark, Map<XSLFTextShape, String> imageTasks) {

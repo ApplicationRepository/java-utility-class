@@ -53,7 +53,7 @@ public final class PptxClearUtils {
                 removeShapeFromContainer(slide, shape);
             }
         }
-        LOGGER.info("PPT 垃圾占位符与空白文本框清理完成！");
+        LOGGER.info("占位符与空白文本框清理完成");
     }
 
     /**
