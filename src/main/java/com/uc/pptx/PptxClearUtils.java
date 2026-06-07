@@ -1,4 +1,4 @@
-package com.uc.pptx.processor;
+package com.uc.pptx;
 
 import lombok.extern.log4j.Log4j2;
 import org.apache.poi.xslf.usermodel.*;
@@ -12,10 +12,14 @@ import java.util.regex.Pattern;
  * 专门负责清理 PPT 中未被替换的占位符以及空白文本框
  */
 @Log4j2
-public class PptxClearProcessor {
+public final class PptxClearUtils {
 
     // 默认匹配 ${...} 格式占位符的正则表达式
     private static final Pattern DEFAULT_REGEX = Pattern.compile("\\$\\{[^}]+\\}");
+
+
+    private PptxClearUtils() {
+    }
 
     /**
      * 一键清理入口（使用默认的 ${...} 正则表达式）
@@ -33,7 +37,9 @@ public class PptxClearProcessor {
      * @param regex 自定义占位符的正则表达式
      */
     public static void process(XMLSlideShow ppt, Pattern regex) {
-        if (ppt == null) return;
+        if (ppt == null) {
+            return;
+        }
 
         for (XSLFSlide slide : ppt.getSlides()) {
             // 暂存本页中需要被彻底删除的空白文本框，避免遍历时直接删除触发并发修改异常
@@ -86,21 +92,20 @@ public class PptxClearProcessor {
     private static void cleanResidualPlaceholders(XSLFTextShape shape, Pattern regex) {
         for (XSLFTextParagraph p : shape.getTextParagraphs()) {
             List<XSLFTextRun> runs = p.getTextRuns();
-            if (runs.isEmpty()) continue;
-
+            if (runs.isEmpty()) {
+                continue;
+            }
             // 获取当前段落的完整文本
             StringBuilder sb = new StringBuilder();
             for (XSLFTextRun r : runs) {
                 sb.append(r.getRawText());
             }
             String content = sb.toString();
-
             // 正则匹配检查
             Matcher matcher = regex.matcher(content);
             if (matcher.find()) {
                 // 将所有匹配到的占位符全部替换为 ""
                 String result = matcher.replaceAll("");
-
                 // 写回第一个 Run，并清理掉该段落后续的多余 Runs 保证格式不乱
                 runs.get(0).setText(result);
                 for (int i = runs.size() - 1; i > 0; i--) {

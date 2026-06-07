@@ -1,4 +1,4 @@
-package com.uc.pptx.processor;
+package com.uc.pptx;
 
 import cn.hutool.core.util.StrUtil;
 import lombok.Data;
@@ -16,7 +16,10 @@ import java.util.Map;
  * 专门负责将占位符文本框替换为【桑基图】
  */
 @Log4j2
-public class PptxSankeyProcessor {
+public final class PptxSankeyUtils {
+
+    private PptxSankeyUtils() {
+    }
 
     public static void process(XMLSlideShow ppt, Map<String, SankeyData> sankeyMap, String sankeyPlaceholderMark) {
         if (ppt == null || sankeyMap == null || sankeyMap.isEmpty()) {

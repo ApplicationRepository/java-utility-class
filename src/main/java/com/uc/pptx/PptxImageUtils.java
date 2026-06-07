@@ -1,4 +1,4 @@
-package com.uc.pptx.processor;
+package com.uc.pptx;
 
 import cn.hutool.core.util.StrUtil;
 import lombok.extern.log4j.Log4j2;
@@ -18,7 +18,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Log4j2
-public class PptxImageProcessor {
+public final class PptxImageUtils {
+
+    private PptxImageUtils() {
+    }
+
     public static void process(XMLSlideShow ppt, Map<String, String> imageMap, String imagePlaceholderMark) {
         if (ppt == null || imageMap == null || imageMap.isEmpty()) {
             return;
@@ -102,7 +106,9 @@ public class PptxImageProcessor {
         } catch (Exception e) {
             LOGGER.error("下载网络图片失败: {}", urlString, e);
         } finally {
-            if (conn != null) conn.disconnect();
+            if (conn != null) {
+                conn.disconnect();
+            }
         }
         return null;
     }
