@@ -9,7 +9,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * 专门负责清理 PPT 中未被替换的占位符以及空白文本框
+ * 清理未被替换的占位符以及空白文本框
  */
 @Log4j2
 public final class PptxClearUtils {

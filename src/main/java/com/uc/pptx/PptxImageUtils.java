@@ -17,6 +17,9 @@ import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * 替换图片
+ */
 @Log4j2
 public final class PptxImageUtils {
 

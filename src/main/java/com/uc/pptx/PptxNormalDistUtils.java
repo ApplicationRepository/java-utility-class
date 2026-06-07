@@ -20,6 +20,9 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * 正态分布图
+ */
 @Log4j2
 public final class PptxNormalDistUtils {
 

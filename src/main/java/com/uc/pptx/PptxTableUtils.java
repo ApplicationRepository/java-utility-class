@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 专门负责将占位符文本框替换为新生成的表格（高保真：完美继承所有样式，并支持基于内容的【行高自适应】）
+ * 替换表格
  */
 @Log4j2
 public final class PptxTableUtils {
