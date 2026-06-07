@@ -1,11 +1,13 @@
 package com.uc.pptx.processor;
 
 import cn.hutool.core.util.StrUtil;
+import lombok.Getter;
 import lombok.extern.log4j.Log4j2;
 import org.apache.poi.xddf.usermodel.chart.*;
 import org.apache.poi.xslf.usermodel.*;
 
 import java.awt.geom.Rectangle2D;
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,7 +15,9 @@ import java.util.Map;
 public class PptxNormalDistProcessor {
 
     public static void process(XMLSlideShow ppt, Map<String, NormalDistConfig> configMap, String placeholderMark) {
-        if (ppt == null || configMap == null || configMap.isEmpty()) return;
+        if (ppt == null || configMap == null || configMap.isEmpty()) {
+            return;
+        }
 
         for (XSLFSlide slide : ppt.getSlides()) {
             Map<XSLFTextShape, NormalDistConfig> tasks = new HashMap<>();
@@ -26,7 +30,7 @@ public class PptxNormalDistProcessor {
                 try {
                     createNormalDistributionChart(ppt, slide, shape, config);
                 } catch (Exception e) {
-                    log.error("生成正态分布图失败", e);
+                    LOGGER.error("生成正态分布图失败", e);
                 }
             });
         }
@@ -34,7 +38,9 @@ public class PptxNormalDistProcessor {
 
     private static void createNormalDistributionChart(XMLSlideShow ppt, XSLFSlide slide, XSLFTextShape textShape, NormalDistConfig config) {
         Rectangle2D anchor = textShape.getAnchor();
-        if (anchor == null) return;
+        if (anchor == null) {
+            return;
+        }
 
         // 1. 先在幻灯片中创建一个图表关系（此时它还是一个没有位置的内存对象）
         XSLFChart chart = ppt.createChart();
@@ -50,13 +56,13 @@ public class PptxNormalDistProcessor {
         Double[] xData = new Double[pointsCount];
         Double[] yData = new Double[pointsCount];
 
-        double minX = config.getMean() - 3.5 * config.getStdev();
-        double maxX = config.getMean() + 3.5 * config.getStdev();
+        double minX = config.getMean() - 3.5 * config.getStandardDeviation();
+        double maxX = config.getMean() + 3.5 * config.getStandardDeviation();
         double step = (maxX - minX) / (pointsCount - 1);
 
         for (int i = 0; i < pointsCount; i++) {
             double x = minX + i * step;
-            double y = calculateNormalDistributionY(x, config.getMean(), config.getStdev());
+            double y = calculateNormalDistributionY(x, config.getMean(), config.getStandardDeviation());
             xData[i] = x;
             yData[i] = y;
         }
@@ -100,7 +106,9 @@ public class PptxNormalDistProcessor {
             if (shape instanceof XSLFTextShape) {
                 XSLFTextShape textShape = (XSLFTextShape) shape;
                 String fullText = textShape.getText();
-                if (fullText == null || fullText.isEmpty()) continue;
+                if (fullText == null || fullText.isEmpty()) {
+                    continue;
+                }
 
                 for (Map.Entry<String, NormalDistConfig> entry : configMap.entrySet()) {
                     if (StrUtil.containsAnyIgnoreCase(fullText, entry.getKey()) && entry.getKey().contains(mark)) {
@@ -127,27 +135,17 @@ public class PptxNormalDistProcessor {
     /**
      * 正态分布配置参数类
      */
-    public static class NormalDistConfig {
+    @Getter
+    public static class NormalDistConfig implements Serializable {
+        private static final long serialVersionUID = 842478687215701952L;
         private final String seriesTitle; // 曲线名称
         private final double mean;        // 均值 (μ)
-        private final double stdev;       // 标准差 (σ)
+        private final double standardDeviation;       // 标准差 (σ)
 
-        public NormalDistConfig(String seriesTitle, double mean, double stdev) {
+        public NormalDistConfig(String seriesTitle, double mean, double standardDeviation) {
             this.seriesTitle = seriesTitle;
             this.mean = mean;
-            this.stdev = stdev;
-        }
-
-        public String getSeriesTitle() {
-            return seriesTitle;
-        }
-
-        public double getMean() {
-            return mean;
-        }
-
-        public double getStdev() {
-            return stdev;
+            this.standardDeviation = standardDeviation;
         }
     }
 }

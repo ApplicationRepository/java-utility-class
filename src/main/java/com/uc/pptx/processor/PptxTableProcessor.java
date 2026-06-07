@@ -20,17 +20,15 @@ public class PptxTableProcessor {
     private static final Color DEFAULT_BORDER_COLOR = Color.BLACK;
 
     public static void process(XMLSlideShow ppt, Map<String, String[][]> tableMap, String tablePlaceholderMark) {
-        if (ppt == null || tableMap == null || tableMap.isEmpty()) return;
-
+        if (ppt == null || tableMap == null || tableMap.isEmpty()) {
+            return;
+        }
         for (XSLFSlide slide : ppt.getSlides()) {
             Map<XSLFTextShape, String[][]> tableTasks = new HashMap<>();
             // 扫描占位符
             scanTablePlaceholders(slide, tableMap, tablePlaceholderMark, tableTasks);
-
             // 统一渲染
-            tableTasks.forEach((shape, tableData) -> {
-                replaceShapeWithTable(slide, shape, tableData);
-            });
+            tableTasks.forEach((shape, tableData) -> replaceShapeWithTable(slide, shape, tableData));
         }
     }
 
@@ -39,8 +37,9 @@ public class PptxTableProcessor {
             if (shape instanceof XSLFTextShape) {
                 XSLFTextShape textShape = (XSLFTextShape) shape;
                 String fullText = textShape.getText();
-                if (fullText == null || fullText.isEmpty()) continue;
-
+                if (fullText == null || fullText.isEmpty()) {
+                    continue;
+                }
                 for (Map.Entry<String, String[][]> entry : tableMap.entrySet()) {
                     if (StrUtil.containsAnyIgnoreCase(fullText, entry.getKey()) && entry.getKey().contains(tableMark)) {
                         tableTasks.put(textShape, entry.getValue());
@@ -55,8 +54,9 @@ public class PptxTableProcessor {
 
     private static void replaceShapeWithTable(XSLFSlide slide, XSLFTextShape textShape, String[][] data) {
         Rectangle2D anchor = textShape.getAnchor();
-        if (anchor == null || data == null || data.length == 0) return;
-
+        if (anchor == null || data == null || data.length == 0) {
+            return;
+        }
         XSLFTable table = slide.createTable();
         table.setAnchor(anchor);
 
@@ -80,7 +80,9 @@ public class PptxTableProcessor {
 
         double totalWidth = anchor.getWidth();
         double colWidth = totalWidth / data[0].length;
-        for (int j = 0; j < data[0].length; j++) table.setColumnWidth(j, colWidth);
+        for (int j = 0; j < data[0].length; j++) {
+            table.setColumnWidth(j, colWidth);
+        }
 
         removeShape(slide, textShape);
     }
@@ -91,7 +93,9 @@ public class PptxTableProcessor {
             return;
         }
         for (XSLFShape shape : container.getShapes()) {
-            if (shape instanceof XSLFGroupShape) removeShape((XSLFGroupShape) shape, target);
+            if (shape instanceof XSLFGroupShape) {
+                removeShape((XSLFGroupShape) shape, target);
+            }
         }
     }
 

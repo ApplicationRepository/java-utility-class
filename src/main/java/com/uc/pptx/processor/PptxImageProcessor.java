@@ -33,7 +33,7 @@ public class PptxImageProcessor {
                 try {
                     replaceShapeWithImage(ppt, slide, shape, imgPathOrUrl, pictureCache);
                 } catch (Exception e) {
-                    log.error("图片替换失败: {}", imgPathOrUrl, e);
+                    LOGGER.error("图片替换失败: {}", imgPathOrUrl, e);
                 }
             });
         }
@@ -100,7 +100,7 @@ public class PptxImageProcessor {
                 }
             }
         } catch (Exception e) {
-            log.error("下载网络图片失败: {}", urlString, e);
+            LOGGER.error("下载网络图片失败: {}", urlString, e);
         } finally {
             if (conn != null) conn.disconnect();
         }

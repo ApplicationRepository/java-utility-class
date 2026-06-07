@@ -12,8 +12,9 @@ import java.util.Map;
 public class PptxTextProcessor {
 
     public static void process(XMLSlideShow ppt, Map<String, String> dataMap) {
-        if (ppt == null || dataMap == null || dataMap.isEmpty()) return;
-
+        if (ppt == null || dataMap == null || dataMap.isEmpty()) {
+            return;
+        }
         for (XSLFSlide slide : ppt.getSlides()) {
             processContainer(slide, dataMap);
         }
@@ -24,8 +25,9 @@ public class PptxTextProcessor {
             if (shape instanceof XSLFTextShape) {
                 XSLFTextShape textShape = (XSLFTextShape) shape;
                 String fullText = textShape.getText();
-                if (fullText == null || fullText.isEmpty()) continue;
-
+                if (fullText == null || fullText.isEmpty()) {
+                    continue;
+                }
                 for (Map.Entry<String, String> entry : dataMap.entrySet()) {
                     String key = entry.getKey();
                     if (StrUtil.containsAnyIgnoreCase(fullText, key)) {
@@ -42,7 +44,9 @@ public class PptxTextProcessor {
     private static void replaceText(XSLFTextShape shape, String target, String replacement) {
         for (XSLFTextParagraph p : shape.getTextParagraphs()) {
             List<XSLFTextRun> runs = p.getTextRuns();
-            if (runs.isEmpty()) continue;
+            if (runs.isEmpty()) {
+                continue;
+            }
 
             StringBuilder sb = new StringBuilder();
             for (XSLFTextRun r : runs) sb.append(r.getRawText());

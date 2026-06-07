@@ -5,7 +5,7 @@ target/
 .kotlin
 .mvn/
 .logs/
-
+logs/
 ### IntelliJ IDEA ###
 .idea/
 .idea/modules.xml

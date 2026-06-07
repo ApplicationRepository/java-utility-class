@@ -19,7 +19,9 @@ import java.util.Map;
 public class PptxSankeyProcessor {
 
     public static void process(XMLSlideShow ppt, Map<String, SankeyData> sankeyMap, String sankeyPlaceholderMark) {
-        if (ppt == null || sankeyMap == null || sankeyMap.isEmpty()) return;
+        if (ppt == null || sankeyMap == null || sankeyMap.isEmpty()) {
+            return;
+        }
 
         for (XSLFSlide slide : ppt.getSlides()) {
             Map<XSLFTextShape, SankeyData> sankeyTasks = new HashMap<>();
@@ -30,7 +32,7 @@ public class PptxSankeyProcessor {
                 try {
                     replaceShapeWithSankey(ppt, slide, shape, data);
                 } catch (Exception e) {
-                    log.error("桑基图替换失败", e);
+                    LOGGER.error("桑基图替换失败", e);
                 }
             });
         }
@@ -41,8 +43,9 @@ public class PptxSankeyProcessor {
             if (shape instanceof XSLFTextShape) {
                 XSLFTextShape textShape = (XSLFTextShape) shape;
                 String fullText = textShape.getText();
-                if (fullText == null || fullText.isEmpty()) continue;
-
+                if (fullText == null || fullText.isEmpty()) {
+                    continue;
+                }
                 for (Map.Entry<String, SankeyData> entry : sankeyMap.entrySet()) {
                     if (StrUtil.containsAnyIgnoreCase(fullText, entry.getKey()) && entry.getKey().contains(mark)) {
                         tasks.put(textShape, entry.getValue());
@@ -57,14 +60,16 @@ public class PptxSankeyProcessor {
 
     private static void replaceShapeWithSankey(XMLSlideShow ppt, XSLFSlide slide, XSLFTextShape textShape, SankeyData data) {
         Rectangle2D anchor = textShape.getAnchor();
-        if (anchor == null) return;
+        if (anchor == null) {
+            return;
+        }
 
         // 3. 调用生成渲染引擎，根据数据动态画出桑基图字节流
         // 传入宽和高（让生成的图片比例和 PPT 文本框完全一致，防止拉伸变形）
         byte[] sankeyImageBytes = generateSankeyImageBytes(data, (int) anchor.getWidth(), (int) anchor.getHeight());
 
         if (sankeyImageBytes == null || sankeyImageBytes.length == 0) {
-            log.warn("桑基图生成字节为空");
+            LOGGER.warn("桑基图生成字节为空");
             return;
         }
 
@@ -89,7 +94,7 @@ public class PptxSankeyProcessor {
         //     data: data.getNodes(),
         //     links: data.getLinks()
         // }]
-        log.info("开始生成桑基图，画布大小: {}x{}, 节点数: {}", width, height, data.getNodes().size());
+        LOGGER.info("开始生成桑基图，画布大小: {}x{}, 节点数: {}", width, height, data.getNodes().size());
 
         try {
             // 【此处替换为你的 ECharts 离线导出工具类代码】
@@ -97,7 +102,7 @@ public class PptxSankeyProcessor {
 
             return null;
         } catch (Exception e) {
-            log.error("ECharts 离线渲染失败", e);
+            LOGGER.error("ECharts 离线渲染失败", e);
             return null;
         }
     }
