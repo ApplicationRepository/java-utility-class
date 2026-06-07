@@ -1,4 +1,4 @@
-package com.uc.ppt;
+package com.uc.test;
 
 import cn.hutool.core.io.FileUtil;
 import com.uc.pptx.PptxClearUtils;
@@ -12,6 +12,7 @@ import org.junit.Test;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,7 +22,7 @@ import java.util.Map;
 @Log4j2
 public class PptxUtilsTest {
 
-    private static final String BASE_PATH = "/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file";
+    private static final String BASE_PATH = "/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/resources";
     private static final String TEMPLATE_PATH = BASE_PATH + "/pptx/template.pptx";
     private static final String OUTPUT_PATH = BASE_PATH + "/pptx/output.pptx";
 
@@ -34,7 +35,7 @@ public class PptxUtilsTest {
     }
 
     @Test
-    public void createPptxTest() throws Exception {
+    public void createPptxTest() {
         try (FileInputStream fis = new FileInputStream(TEMPLATE_PATH); XMLSlideShow ppt = new XMLSlideShow(fis)) {
             //文本数据
             Map<String, String> textMap = new HashMap<>();
@@ -70,6 +71,8 @@ public class PptxUtilsTest {
             try (FileOutputStream fos = new FileOutputStream(OUTPUT_PATH)) {
                 ppt.write(fos);
             }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 

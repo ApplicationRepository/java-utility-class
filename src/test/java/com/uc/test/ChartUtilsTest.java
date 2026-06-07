@@ -1,4 +1,4 @@
-package com.uc.ppt;
+package com.uc.test;
 
 import com.uc.chart.CpkPpkChartUtils;
 import com.uc.chart.SankeyChartUtils;
@@ -16,7 +16,7 @@ import java.util.Random;
 @Log4j2
 public class ChartUtilsTest {
 
-    private static final String BASE_PATH = "/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/java/com/uc/ppt/file";
+    private static final String BASE_PATH = "/Users/administrator/Desktop/work-space/IDEA/java-utility-class/src/test/resources";
 
     @Test
     public void cpkPpkTest() {
@@ -145,9 +145,9 @@ public class ChartUtilsTest {
         sankeyEntityList.add(new SankeyEntity("水电物业", "建设银行对公", 50.0));
 
         String outputPath = BASE_PATH + "/chart/Sankey.png";
-        
-        SankeyChartUtils.processSankey("企业年度预算分流看板", sankeyEntityList, outputPath, 1000, 800);
-        LOGGER.info("类桑基图已安全生成:{}", outputPath);
+
+        SankeyChartUtils.processSankey("企业年度预算分流看板", sankeyEntityList, outputPath, 800, 600);
+        LOGGER.info("桑基图已安全生成:{}", outputPath);
 
     }
 
