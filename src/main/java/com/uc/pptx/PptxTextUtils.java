@@ -5,22 +5,21 @@ import org.apache.poi.sl.usermodel.PaintStyle;
 import org.apache.poi.xslf.usermodel.*;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
 /**
  * 普通文本替换工具类
- * 💡 深度整合版：完美适配 [跨平台中英文混排] + [100%样式承袭防乱码] + [支持组组件/表格嵌套扫描]
+ * 💡 深度整合版：彻底解决 [ConcurrentModificationException] 与 [XmlValueDisconnectedException]
  */
 @Log4j2
 public final class PptxTextUtils {
 
-    // 🚀 核心防乱码优化：全局定义跨平台绝对安全的逻辑中文字体名
     private static final String SAFE_FONT_FAMILY;
 
     static {
-        // 获取当前系统支持的所有物理字体名称
         String[] fontNames = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
         boolean hasYaHei = Arrays.stream(fontNames).anyMatch("Microsoft YaHei"::equalsIgnoreCase);
         boolean hasPingFang = Arrays.stream(fontNames).anyMatch("PingFang SC"::equalsIgnoreCase);
@@ -30,7 +29,6 @@ public final class PptxTextUtils {
         } else if (hasPingFang) {
             SAFE_FONT_FAMILY = "PingFang SC";
         } else {
-            // JVM 层面在任意 Linux 发行版均 100% 存在的逻辑无衬线字体，完美防御 Docker 容器方块乱码
             SAFE_FONT_FAMILY = "SansSerif";
         }
         LOGGER.info("PPTX 文本替换引擎初始化成功，跨平台安全字体绑定为: {}", SAFE_FONT_FAMILY);
@@ -39,12 +37,6 @@ public final class PptxTextUtils {
     private PptxTextUtils() {
     }
 
-    /**
-     * 一键文本占位符替换入口
-     *
-     * @param ppt     XMLSlideShow 对象
-     * @param dataMap 替换的键值对集合（如: "${name}" -> "张三"）
-     */
     public static void process(XMLSlideShow ppt, Map<String, String> dataMap) {
         if (ppt == null || dataMap == null || dataMap.isEmpty()) {
             return;
@@ -59,8 +51,10 @@ public final class PptxTextUtils {
         for (XSLFShape shape : container.getShapes()) {
             if (shape instanceof XSLFTextShape) {
                 XSLFTextShape textShape = (XSLFTextShape) shape;
-                // 逐个段落进行安全样式替换
-                for (XSLFTextParagraph p : textShape.getTextParagraphs()) {
+
+                // 🚀 优化 1：通过创建 ArrayList 镜像，彻底阻断 ConcurrentModificationException
+                List<XSLFTextParagraph> paragraphs = new ArrayList<>(textShape.getTextParagraphs());
+                for (XSLFTextParagraph p : paragraphs) {
                     for (Map.Entry<String, String> entry : dataMap.entrySet()) {
                         replaceTextInParagraph(p, entry.getKey(), entry.getValue());
                     }
@@ -68,11 +62,12 @@ public final class PptxTextUtils {
             } else if (shape instanceof XSLFGroupShape) {
                 processContainer((XSLFGroupShape) shape, dataMap);
             } else if (shape instanceof XSLFTable) {
-                // 🛠️ 扩展：如果是表格组件，同样深度扫描里面的单元格文本
                 XSLFTable table = (XSLFTable) shape;
                 for (XSLFTableRow row : table.getRows()) {
                     for (XSLFTableCell cell : row.getCells()) {
-                        for (XSLFTextParagraph p : cell.getTextParagraphs()) {
+                        // 🚀 同样对表格单元格内的段落进行 ArrayList 快照镜像化保护
+                        List<XSLFTextParagraph> cellParas = new ArrayList<>(cell.getTextParagraphs());
+                        for (XSLFTextParagraph p : cellParas) {
                             for (Map.Entry<String, String> entry : dataMap.entrySet()) {
                                 replaceTextInParagraph(p, entry.getKey(), entry.getValue());
                             }
@@ -84,7 +79,7 @@ public final class PptxTextUtils {
     }
 
     /**
-     * 🚀 终极样式承袭算法：在段落内部精准替换文本，同时保持高强度的中文字体轨不破损
+     * 🚀 终极样式承袭算法：采用深度离线拷贝，彻底根绝 XmlValueDisconnectedException
      */
     private static void replaceTextInParagraph(XSLFTextParagraph p, String target, String replacement) {
         List<XSLFTextRun> runs = p.getTextRuns();
@@ -92,7 +87,7 @@ public final class PptxTextUtils {
             return;
         }
 
-        // 1. 拼接当前段落的完整文本（解决占位符被 Office 意外切碎成多个 Run 的千古难题）
+        // 1. 拼接当前段落的完整文本
         StringBuilder sb = new StringBuilder();
         for (XSLFTextRun r : runs) {
             String text = r.getRawText();
@@ -102,20 +97,19 @@ public final class PptxTextUtils {
         }
         String fullText = sb.toString();
 
-        // 2. 如果当前段落文本不包含目标占位符，直接安全退出
         if (!fullText.contains(target)) {
             return;
         }
 
-        // 3. 提取首个有效 Run 的样式元数据，作为整个段落的基本承袭骨架
+        // 2. 🚀 优化 2：采用值复制进行“深拷贝”存储，绝不持有可能被销毁的 baseRun 节点的原始引用
         XSLFTextRun baseRun = runs.get(0);
         String sourceFontFamily = baseRun.getFontFamily();
         Double sourceFontSize = baseRun.getFontSize();
         boolean isBold = baseRun.isBold();
         boolean isItalic = baseRun.isItalic();
-        PaintStyle fontColor = baseRun.getFontColor();
+        PaintStyle fontColor = baseRun.getFontColor(); // 颜色基础值保留
 
-        // 4. 动态环境校验：如果原有 PPT 定义的字体在当前操作系统（如 Linux 容器）不存在，强制执行自适应保护
+        // 3. 动态环境校验与降级保护
         if (sourceFontFamily != null && !sourceFontFamily.isEmpty()) {
             String[] availableFonts = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
             boolean fontExists = Arrays.stream(availableFonts).anyMatch(sourceFontFamily::equalsIgnoreCase);
@@ -126,18 +120,23 @@ public final class PptxTextUtils {
             sourceFontFamily = SAFE_FONT_FAMILY;
         }
 
-        // 5. 执行文本彻底重组替换
+        // 4. 执行替换文本重组
         String newFullText = fullText.replace(target, replacement != null ? replacement : "");
 
-        // 6. 🛠️ 清空原有被切碎的错位旧 Runs，重新构建一个干净的、字体轨完备的新 Run
-        for (int i = runs.size() - 1; i >= 0; i--) {
-            p.removeTextRun(runs.get(i));
+        // 5. 安全清空陈旧零碎的旧 Runs
+        // 💡 额外注意：清理时直接利用 p.removeTextRun(0)，比依赖 runs.get(i) 的外部索引更加对齐底层 XML 的变化
+        int originalSize = runs.size();
+        for (int i = 0; i < originalSize; i++) {
+            if (!p.getTextRuns().isEmpty()) {
+                p.removeTextRun(p.getTextRuns().get(0));
+            }
         }
 
+        // 6. 新建一个完备的、独立的全新 Run
         XSLFTextRun newRun = p.addNewTextRun();
         newRun.setText(newFullText);
 
-        // 7. 重新注入被全方位保护的高清晰度无乱码字体属性
+        // 7. 🚀 安全注入深拷贝保留下来的样式属性（此时已脱离任何被破坏的 XML 节点的纠缠，绝不报错）
         newRun.setFontFamily(sourceFontFamily);
         if (sourceFontSize != null) {
             newRun.setFontSize(sourceFontSize);

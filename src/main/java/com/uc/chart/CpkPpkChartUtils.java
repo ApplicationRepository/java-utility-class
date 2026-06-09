@@ -330,7 +330,9 @@ public final class CpkPpkChartUtils {
     private static double calculateLongTermSigma(double[] data) {
         double mean = calculateMean(data);
         double sum = 0;
-        for (double d : data) sum += Math.pow(d - mean, 2);
+        for (double d : data) {
+            sum += Math.pow(d - mean, 2);
+        }
         return Math.sqrt(sum / (data.length - 1));
     }
 

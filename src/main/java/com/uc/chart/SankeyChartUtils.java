@@ -130,7 +130,9 @@ public final class SankeyChartUtils {
                 globalTotalValue += entity.getValue();
             }
         }
-        if (globalTotalValue == 0) globalTotalValue = 1.0;
+        if (globalTotalValue == 0) {
+            globalTotalValue = 1.0;
+        }
 
         // 4. 自适应“上下双层分流”几何视口切分逻辑
         boolean isDoubleRow = totalLevels > 4; // 当总层数超过 4 层时，全自动开启上下两层折行排版
@@ -159,7 +161,9 @@ public final class SankeyChartUtils {
         Map<String, Rectangle> nodeBounds = new HashMap<>();
         for (int lvl = 0; lvl < totalLevels; lvl++) {
             List<String> nodes = levelNodesMap.get(lvl);
-            if (nodes == null) continue;
+            if (nodes == null) {
+                continue;
+            }
 
             // 核心计算：折行后的横坐标 X 及所属行数
             int targetRow = isDoubleRow && (lvl >= levelsPerRow) ? 1 : 0;
@@ -176,7 +180,9 @@ public final class SankeyChartUtils {
                 if (lvl == 0 || lvl == maxLevel || (isDoubleRow && lvl == levelsPerRow - 1)) {
                     nodeHeight = (int) ((nodeVal / globalTotalValue) * usableHeight);
                 }
-                if (nodeHeight < 14) nodeHeight = 14; // 硬托底，防止极小流量节点在画布上蒸发消失
+                if (nodeHeight < 14) {
+                    nodeHeight = 14; // 硬托底，防止极小流量节点在画布上蒸发消失
+                }
 
                 nodeBounds.put(node, new Rectangle(x, startY, nodeWidth, nodeHeight));
                 startY += nodeHeight + gap;
@@ -194,16 +200,22 @@ public final class SankeyChartUtils {
 
             Rectangle srcRect = nodeBounds.get(src);
             Rectangle tgtRect = nodeBounds.get(tgt);
-            if (srcRect == null || tgtRect == null) continue;
+            if (srcRect == null || tgtRect == null) {
+                continue;
+            }
 
             int sOff = sourceOffsets.getOrDefault(src, 0);
             int tOff = targetOffsets.getOrDefault(tgt, 0);
 
             double srcTotal = sankeyEntityList.stream().filter(e -> e.getSource().equals(src)).mapToDouble(SankeyEntity::getValue).sum();
             int pipeHeight = (int) ((val / (srcTotal > 0 ? srcTotal : 1)) * srcRect.height);
-            if (pipeHeight < 2) pipeHeight = 2;
+            if (pipeHeight < 2) {
+                pipeHeight = 2;
+            }
 
-            if (sOff + pipeHeight > srcRect.height) pipeHeight = srcRect.height - sOff;
+            if (sOff + pipeHeight > srcRect.height) {
+                pipeHeight = srcRect.height - sOff;
+            }
 
             int srcLvl = nodeLevels.get(src);
             int tgtLvl = nodeLevels.get(tgt);
@@ -283,7 +295,9 @@ public final class SankeyChartUtils {
             }
 
             // 字符安全边界截断：如果文本极长并溢出画布边界，执行自动防崩截断 `...`
-            if (textX < 5) textX = 5;
+            if (textX < 5) {
+                textX = 5;
+            }
             if (textX + textWidth > width - 5) {
                 String truncated = nodeName;
                 while (fm.stringWidth(truncated + "...") > (width - textX - 10) && truncated.length() > 1) {

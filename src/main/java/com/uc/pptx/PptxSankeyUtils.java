@@ -116,7 +116,9 @@ public final class PptxSankeyUtils {
             return;
         }
         for (XSLFShape shape : container.getShapes()) {
-            if (shape instanceof XSLFGroupShape) removeShape((XSLFGroupShape) shape, target);
+            if (shape instanceof XSLFGroupShape) {
+                removeShape((XSLFGroupShape) shape, target);
+            }
         }
     }
 

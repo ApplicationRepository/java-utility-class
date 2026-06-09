@@ -98,8 +98,12 @@ public final class ScatterChartUtils {
             for (int i = 0; i < dataset.getItemCount(s); i++) {
                 double x = dataset.getXValue(s, i);
                 double y = dataset.getYValue(s, i);
-                if (Math.abs(x) > maxAbsX) maxAbsX = Math.abs(x);
-                if (Math.abs(y) > maxAbsY) maxAbsY = Math.abs(y);
+                if (Math.abs(x) > maxAbsX) {
+                    maxAbsX = Math.abs(x);
+                }
+                if (Math.abs(y) > maxAbsY) {
+                    maxAbsY = Math.abs(y);
+                }
             }
         }
 

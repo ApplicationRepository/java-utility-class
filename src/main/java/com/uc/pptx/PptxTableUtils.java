@@ -190,7 +190,9 @@ public final class PptxTableUtils {
                     double textWidth = stringBounds.getWidth();
 
                     int lineCount = (int) Math.ceil(textWidth / availableTextWidth);
-                    if (lineCount < 1) lineCount = 1;
+                    if (lineCount < 1) {
+                        lineCount = 1;
+                    }
 
                     double singleLineHeight = sourceFontSize * 1.2;
                     double cellHeightNeeded = (lineCount * singleLineHeight) + topInset + bottomInset + 6.0;
@@ -199,17 +201,14 @@ public final class PptxTableUtils {
                         maxRowHeightNeeded = cellHeightNeeded;
                     }
                 }
-
                 if (i == 0) {
                     cell.setFillColor(sourceBgColor != null ? sourceBgColor : new Color(220, 230, 242));
                 } else {
                     cell.setFillColor(null);
                 }
-
                 cell.setVerticalAlignment(sourceVerticalAlignment);
                 cellPara.setTextAlign(TextParagraph.TextAlign.CENTER);
-
-                setCellBorders(cell, DEFAULT_BORDER_COLOR, 1.0);
+                setCellBorders(cell, DEFAULT_BORDER_COLOR, 1D);
             }
 
             table.setRowHeight(i, maxRowHeightNeeded);
@@ -235,9 +234,9 @@ public final class PptxTableUtils {
     }
 
     private static void setCellBorders(XSLFTableCell cell, Color color, double width) {
-        for (TableCell.BorderEdge edge : TableCell.BorderEdge.values()) {
-            cell.setBorderColor(edge, color);
-            cell.setBorderWidth(edge, width);
+        for (TableCell.BorderEdge borderEdge : TableCell.BorderEdge.values()) {
+            cell.setBorderColor(borderEdge, color);
+            cell.setBorderWidth(borderEdge, width);
         }
     }
 }
