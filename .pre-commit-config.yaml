@@ -1,0 +1,9 @@
+repos:
+  - repo: local
+    hooks:
+      - id: spotless-apply
+        name: Spotless Apply (Java Formatter)
+        entry: mvn spotless:apply
+        language: system
+        files: \.java$  # 只在修改了 Java 文件时触发
+        pass_filenames: false # 让 Spotless 全局增量扫描，不直接传递文件名
